@@ -39,7 +39,7 @@ public class DataDAO {
      * @param dataList - список DataRecord.
      */
     public void insertBatch(List<DataRecord> dataList){
-        log.info("START insertBatch, dataList.size = {}", dataList.size());
+        log.info("START insertBatch(), dataList.size = {}", dataList.size());
 
         String sql = "INSERT INTO tdata " +
                 "(ID, NAME, VALUE) VALUES (?, ?, ?)";

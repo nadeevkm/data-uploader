@@ -6,6 +6,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
 import ru.nkm.sample.datauploader.DataUploaderApplication;
+import ru.nkm.sample.datauploader.resource.DataController;
+import ru.nkm.sample.datauploader.service.DataService;
 
 /**
  * TestConfiguration.
@@ -15,7 +17,9 @@ import ru.nkm.sample.datauploader.DataUploaderApplication;
 @Configuration
 @ComponentScan(
         basePackageClasses = DataUploaderApplication.class,
-        excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = CommandLineRunner.class))
+        excludeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = CommandLineRunner.class),
+                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = DataController.class),
+                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = DataService.class)})
 @EnableAutoConfiguration
 public class DataUploaderTestConfiguration {
 }

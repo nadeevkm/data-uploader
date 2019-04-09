@@ -5,11 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import ru.nkm.sample.datauploader.model.DataRecord;
 import ru.nkm.sample.datauploader.service.DirectoryWatcher;
 import ru.nkm.sample.datauploader.service.FileProcessorService;
 
 @SpringBootApplication
 @Slf4j
+@EntityScan(basePackageClasses = {DataRecord.class})
 public class DataUploaderApplication implements CommandLineRunner {
 
     private FileProcessorService fileProcessorService;
@@ -20,7 +23,6 @@ public class DataUploaderApplication implements CommandLineRunner {
         this.fileProcessorService = fileProcessorService;
         this.directoryWatcher = directoryWatcher;
     }
-
 
     public static void main(String[] args) {
         SpringApplication.run(DataUploaderApplication.class, args);
